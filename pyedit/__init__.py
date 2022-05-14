@@ -1,6 +1,8 @@
 from types import ModuleType
 from typing import Dict, Any, List
 
+__version__ = "0.0.1"
+
 
 
 class NewAttr(object):
@@ -9,16 +11,27 @@ class NewAttr(object):
     """ 
     pass
 
+class NonWritable(Exception):
+    pass
 
 
 class Writable:
-    def __init__(self, module: ModuleType) -> None:
+    def __init__(self, module: ModuleType, force: bool=False) -> None:
         self.module = module
         self._file = module.__file__
         self.sub: Dict[str, Any] = {}
         for x in dir(module):
             self.sub[x] = module.__dict__[x]
 
+    @staticmethod
+    def _check(module, force) -> bool:
+        if module.__file__ == __file__ and force == False:
+            raise NonWritable("that module can not be overwritten.")
+        elif (not module.__file__.endswith(".py")) and (force == False):
+            raise NonWritable("that module seems not to be a python file, are you sure you want to overwrite it?")
+        else:
+            return True
+        
 
     def __getattribute__(self, name) -> Any:
         try:
