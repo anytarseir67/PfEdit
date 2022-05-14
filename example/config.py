@@ -1,2 +1,2 @@
-total = 5
+total = 7
 ran = True

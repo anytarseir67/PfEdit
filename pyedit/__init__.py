@@ -18,6 +18,7 @@ class NonWritable(Exception):
 class Writable:
     def __init__(self, module: ModuleType, force: bool=False) -> None:
         self.module = module
+        self._check(module, force)
         self._file = module.__file__
         self.sub: Dict[str, Any] = {}
         for x in dir(module):
