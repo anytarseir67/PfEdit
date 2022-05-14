@@ -25,13 +25,11 @@ class Writable:
             self.sub[x] = module.__dict__[x]
 
     @staticmethod
-    def _check(module, force) -> bool:
+    def _check(module, force):
         if module.__file__ == __file__ and force == False:
             raise NonWritable("that module can not be overwritten.")
         elif (not module.__file__.endswith(".py")) and (force == False):
             raise NonWritable("that module seems not to be a python file, are you sure you want to overwrite it?")
-        else:
-            return True
         
 
     def __getattribute__(self, name) -> Any:
