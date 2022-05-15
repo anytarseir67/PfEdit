@@ -1,2 +1,2 @@
-total = 7
-ran = True
+total = 0
+ran = False
