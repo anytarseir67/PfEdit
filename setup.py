@@ -4,7 +4,6 @@ import re
 
 HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
-README = None
 
 version = ''
 with open('pfedit/__init__.py') as f:
