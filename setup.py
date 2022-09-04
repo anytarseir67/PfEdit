@@ -7,17 +7,17 @@ README = (HERE / "README.md").read_text()
 README = None
 
 version = ''
-with open('pyedit/__init__.py') as f:
+with open('pfedit/__init__.py') as f:
     version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', f.read(), re.MULTILINE).group(1)
 
 setup(
-    name="pyedit",
+    name="pfedit",
     version=version,
     description="small helper library that let's you write to python files the same way to write to objects",
     long_description=README,
     long_description_content_type="text/markdown",
     author="anytarseir67",
-    url="https://github.com/anytarseir67/PyEdit",
+    url="https://github.com/anytarseir67/pfedit",
     license="GPLv3",
-    packages=["pyedit"]
+    packages=["pfedit"]
 )

@@ -1,4 +1,4 @@
-from pyedit import Writable
+from pfedit import Writable
 
 import config
 
