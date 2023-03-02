@@ -2,7 +2,7 @@ from types import ModuleType
 from typing import Dict, Any, List
 import inspect
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 
 
