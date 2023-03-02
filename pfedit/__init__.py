@@ -31,7 +31,7 @@ class Writable:
         if module.__file__ == __file__ and force == False:
             raise NonWritable("that module can not be overwritten.")
         elif (not module.__file__.endswith(".py")) and (force == False):
-            raise NonWritable("that module seems not to be a python file, are you sure you want to overwrite it?")
+            raise NonWritable("that module seems to not be a python file, are you sure you want to overwrite it?")
         
 
     def __getattribute__(self, name) -> Any:
